@@ -1,5 +1,6 @@
 import unittest
 
+import DictBuilder
 import LineLn
 from FizzBuzz import FizzBuzz
 import AdjMatrix
@@ -41,10 +42,16 @@ class ChallengeTests(unittest.TestCase):
         self.assertEqual(RecDigitCount.DigitCounter.digits_count(1), 1)
 
     def testLineLen(self):
-        self.assertEqual(LineLn.line_length([0,0],[10,15]), 18.03)
-        self.assertEqual(LineLn.line_length([0,0],[-2,15]), 15.13)
-        self.assertEqual(LineLn.line_length([0,0],[0,0]), 0)
-        self.assertEqual(LineLn.line_length([150,34],[12,11]), 139.90)
+        self.assertEqual(LineLn.line_length([0, 0], [10, 15]), 18.03)
+        self.assertEqual(LineLn.line_length([0, 0], [-2, 15]), 15.13)
+        self.assertEqual(LineLn.line_length([0, 0], [0, 0]), 0)
+        self.assertEqual(LineLn.line_length([150, 34], [12, 11]), 139.90)
+
+    def testDictBuilder(self):
+        self.assertEqual(DictBuilder.top_note({"name": "John", "notes": [3, 5, 4]}), {"name": "John", "top_note": 5})
+        self.assertEqual(DictBuilder.top_note({"name": "Max", "notes": [1, 4, 6]}), {"name": "Max", "top_note": 6})
+        self.assertEqual(DictBuilder.top_note({"name": "Zygmund", "notes": [1, 2, 3]}), {"name": "Zygmund", "top_note": 3})
+
 
 if __name__ == '__main__':
     unittest.main()
